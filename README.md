@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="plugins/workboard-qa-agent/assets/icon-400.png" width="180" alt="Workboard QA Agent icon">
+</p>
+
 # Workboard QA Agent
 
 An open-source Codex plugin for independent, evidence-first verification.
