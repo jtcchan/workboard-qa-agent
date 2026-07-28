@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title">
+  <title id="title">Workboard QA Agent icon</title>
+  <defs>
+    <linearGradient id="background" x1="130" y1="80" x2="890" y2="940" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#071A2B"/>
+      <stop offset="1" stop-color="#063D3B"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="250" y1="210" x2="690" y2="730" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#DFFFF9"/>
+      <stop offset="1" stop-color="#75E6DA"/>
+    </linearGradient>
+    <linearGradient id="check" x1="300" y1="360" x2="570" y2="570" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#67F3C2"/>
+      <stop offset="1" stop-color="#21C889"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="translate(445 430) rotate(90) scale(390)">
+      <stop offset="0" stop-color="#16B8A6" stop-opacity=".28"/>
+      <stop offset="1" stop-color="#16B8A6" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="28" stdDeviation="30" flood-color="#001015" flood-opacity=".5"/>
+    </filter>
+  </defs>
+
+  <rect width="1024" height="1024" rx="224" fill="url(#background)"/>
+  <rect x="18" y="18" width="988" height="988" rx="206" fill="none" stroke="#78E9DD" stroke-opacity=".16" stroke-width="12"/>
+  <circle cx="445" cy="430" r="390" fill="url(#glow)"/>
+
+  <g filter="url(#shadow)">
+    <circle cx="422" cy="404" r="220" fill="#092F3D" fill-opacity=".76" stroke="url(#glass)" stroke-width="66"/>
+    <path d="M579 561 795 777" fill="none" stroke="url(#glass)" stroke-linecap="round" stroke-width="86"/>
+    <path d="m307 411 92 94 155-177" fill="none" stroke="url(#check)" stroke-linecap="round" stroke-linejoin="round" stroke-width="70"/>
+  </g>
+</svg>
