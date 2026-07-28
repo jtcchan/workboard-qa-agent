@@ -1,0 +1,37 @@
+{
+  "name": "workboard-qa-agent",
+  "version": "0.1.0+codex.20260728082623",
+  "description": "Independent, evidence-first QA for code, UI, documents, data, and operational work.",
+  "author": {
+    "name": "John Chan",
+    "url": "https://github.com/jtcchan"
+  },
+  "homepage": "https://github.com/jtcchan/workboard-qa-agent#readme",
+  "repository": "https://github.com/jtcchan/workboard-qa-agent",
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "qa",
+    "verification",
+    "developer-tools"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Workboard QA Agent",
+    "shortDescription": "Independently verify completed project work.",
+    "longDescription": "Run evidence-first, read-only QA across code, browser and UI behavior, documents, data artifacts, and operational proof. Return PASS, FAIL, or BLOCKED without repairing the work being tested.",
+    "developerName": "John Chan",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Independent verification",
+      "Evidence reports",
+      "Optional result publication"
+    ],
+    "websiteURL": "https://github.com/jtcchan/workboard-qa-agent",
+    "brandColor": "#16A085",
+    "defaultPrompt": [
+      "Use $independent-verification to independently verify this completed work.",
+      "Return PASS, FAIL, or BLOCKED from raw evidence without repairing the target."
+    ]
+  }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Independent Verification"
+  short_description: "Independent QA across artifacts and operations"
+  default_prompt: "Use $independent-verification to independently verify this completed work, return PASS, FAIL, or BLOCKED with evidence, and publish the result to verified linked review targets when authorized."

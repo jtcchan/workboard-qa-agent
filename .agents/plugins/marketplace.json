@@ -1,0 +1,20 @@
+{
+  "name": "workboard-qa-agent",
+  "interface": {
+    "displayName": "Workboard QA Agent"
+  },
+  "plugins": [
+    {
+      "name": "workboard-qa-agent",
+      "source": {
+        "source": "local",
+        "path": "./plugins/workboard-qa-agent"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}
