@@ -1,7 +1,7 @@
 {
   "name": "workboard-qa-agent",
-  "version": "0.1.0+codex.20260728092203",
-  "description": "Independent, evidence-first QA for code, UI, documents, data, and operational work.",
+  "version": "0.2.0",
+  "description": "Independent, evidence-first QA for completed work, decision-support analysis, and QA processes.",
   "author": {
     "name": "John Chan",
     "url": "https://github.com/jtcchan"
@@ -18,12 +18,14 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Workboard QA Agent",
-    "shortDescription": "Independently verify completed project work.",
-    "longDescription": "Run evidence-first, read-only QA across code, browser and UI behavior, documents, data artifacts, and operational proof. Return PASS, FAIL, or BLOCKED without repairing the work being tested.",
+    "shortDescription": "Verify completed work, decisions, and QA processes.",
+    "longDescription": "Run evidence-first, read-only QA across completed deliverables, decision-support analysis, and QA processes. Bind immutable targets or content fingerprints, return PASS, FAIL, or BLOCKED, and never treat verification as implementation authority.",
     "developerName": "John Chan",
     "category": "Developer Tools",
     "capabilities": [
       "Independent verification",
+      "Decision analysis verification",
+      "QA process evaluation",
       "Evidence reports",
       "Optional result publication"
     ],
@@ -33,8 +35,8 @@
     "logo": "./assets/icon-1024.png",
     "logoDark": "./assets/icon-1024.png",
     "defaultPrompt": [
-      "Use $independent-verification to independently verify this completed work.",
-      "Return PASS, FAIL, or BLOCKED from raw evidence without repairing the target."
+      "Use $independent-verification to select the appropriate deliverable, decision, or process mode and bind the exact target and evidence.",
+      "Return PASS, FAIL, or BLOCKED from raw evidence without repairing the target or treating PASS as implementation authority."
     ]
   }
 }
