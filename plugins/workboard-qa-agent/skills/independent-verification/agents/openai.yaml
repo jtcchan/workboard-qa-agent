@@ -1,7 +1,7 @@
 interface:
   display_name: "Independent Verification"
-  short_description: "Independent QA across artifacts and operations"
+  short_description: "Independent QA for work, decisions, and QA processes"
   icon_small: "./assets/icon-400.png"
   icon_large: "./assets/icon-400.png"
   brand_color: "#16A085"
-  default_prompt: "Use $independent-verification to independently verify this completed work, return PASS, FAIL, or BLOCKED with evidence, and publish the result to verified linked review targets when authorized."
+  default_prompt: "Use $independent-verification to select the appropriate deliverable, decision, or process mode; bind the exact target and evidence; return PASS, FAIL, or BLOCKED without repairing the target; and publish only to verified authorized review destinations."
