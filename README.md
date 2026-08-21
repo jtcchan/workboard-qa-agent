@@ -104,13 +104,13 @@ only when the task explicitly authorizes those exact destinations.
 ## Safety model
 
 - The verification target stays read-only.
-- The verifier must be separate from the task that created or changed the target.
+- The verifier must run in a fresh task or thread that did not create or change the target. The same user, model family, or agent implementation is acceptable when execution separation and read-only ownership are recorded.
 - Builder summaries and screenshots are hypotheses, not proof.
 - Mutable issues, comments, exports, and account data require content/evidence fingerprints.
 - Missing required evidence produces `BLOCKED`, not a weaker pass.
 - Failed criteria produce `FAIL`; the verifier never silently repairs them.
 - Decision-mode `PASS` means decision-ready, not approved or authorized.
-- QA-process improvements require a separate builder and fresh verification.
+- QA-process improvements require a separate builder task and a fresh verifier task.
 - Local evidence is not published unless the task explicitly permits it.
 
 ## Development

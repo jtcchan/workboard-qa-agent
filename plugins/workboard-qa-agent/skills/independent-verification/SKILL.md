@@ -19,8 +19,9 @@ Use one primary mode per run. A later implementation or live-state check is a ne
 
 - Keep the verification target read-only. Do not edit product code or artifacts, repair the analysis, modify the QA process under review, merge, deploy, change settings, access secrets, touch account or billing state, or mutate production data.
 - Task-authorized QA result comments, local reports, and informational worker notices are the only closeout-write exceptions.
-- Do not claim independent verification if you created or materially changed the target during the current task. Return `BLOCKED` with the required fresh-verifier handoff. A self-check may be reported as validation, but never as independent QA.
-- If process improvements are requested, first complete the read-only process verdict and improvement proposal. A separate builder may implement it; a fresh verifier must evaluate the changed process.
+- Treat independence as execution separation, not identity diversity. A fresh verifier task or thread qualifies when it did not create or materially change the bound target, has no target write ownership, and keeps the target read-only. The same user, model family, agent implementation, or runtime may be used.
+- Record the producer task or thread ID, verifier task or thread ID, and target fingerprint as separation proof. If the current task created or changed the target, do not self-certify it: dispatch or hand off to a fresh verifier task. Return `BLOCKED` only when that fresh execution cannot be established. A self-check may be reported as validation, but never as independent QA.
+- If process improvements are requested, first complete the read-only process verdict and improvement proposal. A separate builder task may implement it; a fresh verifier task must evaluate the changed process.
 - Open only the repositories, URLs, files, accounts, and applications named by the task or safely resolved from its verified contract.
 - Keep screenshots and reports local unless the task explicitly marks them safe to commit or share. Redact sensitive information before any authorized sharing.
 - Stop with `BLOCKED` rather than weakening a required check when an input, capability, authentication state, or safe test surface is unavailable.
@@ -34,7 +35,7 @@ Resolve or require:
 - required and advisory acceptance criteria, kept distinct before testing;
 - evidence sources, evidence capture time or data range, freshness requirement, and source fingerprints;
 - permitted commands and interactions, verification lanes, local artifact directory, sharing policy, and publication policy;
-- builder or analyst identity and verifier identity when independent status matters.
+- producer task or thread ID, verifier task or thread ID, and proof that the verifier execution did not write the bound target.
 
 Inspect safe local context before asking for information already available. If guessing could change the verdict, return `BLOCKED` with the exact missing decision.
 
@@ -53,7 +54,7 @@ A timestamp alone is not immutable identity. If the bound target or material evi
 
 ## Verification workflow
 
-1. Record verifier identity, working directory, mode, intent, target fingerprint, evidence snapshot, and independence status.
+1. Record producer and verifier task or thread IDs, working directory, mode, intent, target fingerprint, evidence snapshot, target write ownership, and independence status.
 2. Translate every acceptance criterion into an observable check before reading the producer's conclusion. Mark criteria required or advisory; never downgrade a required criterion after observing a failure.
 3. Select the smallest independent check set that covers the contract and applicable lanes.
 4. Exercise observable behavior or semantic output. Do not treat source-text presence, prompt wording, screenshots, or producer logs as proof that behavior works. For a regression, reproduce the prior failure when feasible.
@@ -119,7 +120,7 @@ MODE: deliverable|decision|process
 DECISION_MEANING: <what this verdict permits next and does not authorize>
 SCOPE: <targets and acceptance criteria checked>
 INTENT: <user objective, constraints, exclusions, and relevant decisions>
-INDEPENDENCE: <builder or analyst identity, verifier identity, and separation proof>
+INDEPENDENCE: <producer task or thread, verifier task or thread, target write ownership, and separation proof>
 TARGET_FINGERPRINT: <bound immutable identity or content snapshot>
 EVIDENCE_SNAPSHOT: <sources, ranges, capture times, freshness, and hashes>
 CRITERIA_MATRIX: <required/advisory criteria with check and result>

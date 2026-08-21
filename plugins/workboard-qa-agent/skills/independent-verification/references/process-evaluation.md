@@ -17,7 +17,7 @@ Do not generalize a verdict beyond the bound version and evaluated cases. A new 
 
 Evaluate observable behavior across:
 
-1. **Admission and independence**: required inputs, verifier separation, authority boundaries, dirty/shared-state handling, and fail-closed behavior.
+1. **Admission and independence**: required inputs, producer/verifier task separation, target write ownership, handoff proof, authority boundaries, dirty/shared-state handling, and fail-closed behavior. Do not require a different human, model family, or agent implementation when a fresh read-only verifier execution is proven.
 2. **Target and evidence binding**: immutable identity, mutable-content fingerprinting, source provenance, freshness, exact-environment proof, and stale-result invalidation.
 3. **Coverage and reasoning**: criterion-to-check mapping, risk-based lanes, recomputation, counterevidence, boundary and failure cases, and domain-specific acceptance.
 4. **Verdict calibration**: no false pass from missing evidence, no failure hidden as a caveat, bounded blockers, and decision meaning appropriate to the mode.
@@ -33,7 +33,7 @@ Use a bounded corpus that includes, when relevant:
 
 - correct work with complete evidence: expected `PASS`;
 - a required behavioral defect with convincing producer claims: expected `FAIL`;
-- missing authentication, target binding, independence, or evidence: expected `BLOCKED`;
+- missing authentication, target binding, producer/verifier task separation, or evidence: expected `BLOCKED`;
 - a changed commit, edited issue/comment, refreshed dataset, or changed configuration after dispatch: expected stale-target `BLOCKED`;
 - a producer screenshot or source-text match without behavioral proof: must not pass;
 - a mutable issue backed by fingerprinted analysis and data artifacts: may pass decision mode;
