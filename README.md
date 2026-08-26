@@ -7,7 +7,8 @@
 An open-source Codex plugin for independent, evidence-first verification across
 completed deliverables, decision-support analysis, and QA processes. It keeps
 the target read-only and returns exactly one verdict: `PASS`, `FAIL`, or
-`BLOCKED`.
+`BLOCKED`. The full audit stays in `qa-report.md`; the visible response explains
+the verdict and next action in a few short, plain-language bullets.
 
 ```mermaid
 flowchart LR

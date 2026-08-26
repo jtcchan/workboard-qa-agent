@@ -112,7 +112,7 @@ Do not convert a required failure into a caveat. A process or inventory audit ma
 
 ## Output contract
 
-Write `qa-report.md` in the configured artifact directory when filesystem writes are allowed, and return the same structure in the response. Preserve these field names for compatibility:
+Write the complete technical record to `qa-report.md` in the configured artifact directory when filesystem writes are allowed. Preserve these field names in the report for compatibility:
 
 ```text
 RESULT: PASS|FAIL|BLOCKED
@@ -135,11 +135,23 @@ PUBLICATION: <GitHub comment URLs, worker notification status, or exact skipped/
 RECOMMENDATION: <review, bounded rework, process-improvement packet, or unblock action>
 ```
 
+Do not paste this full structure into a human-facing response. It is the durable evidence contract, not the chat format.
+
+Return a short plain-language summary by default:
+
+- Start with the exact verdict (`PASS`, `FAIL`, or `BLOCKED`) and immediately explain what it means in one ordinary sentence.
+- Use three to five short bullets: **Status**, **Verified**, **Blocker** only when applicable, **Next**, and **Evidence** only when a useful artifact exists.
+- State the one action the human needs to take, or say that nothing is needed from them.
+- Link the report descriptively. Keep hashes, raw IDs, paths, timestamps, commands, criteria matrices, publication receipts, and exhaustive findings in the report unless an exact value is needed to act.
+- Do not repeat the same conclusion in a heading, paragraph, and recommendation. Expand only when the user asks for detail or when risk cannot be explained safely in the short summary.
+
+If an orchestrator or parser explicitly requires machine fields, send the smallest required technical receipt through the internal task-to-manager channel. Do not expose that receipt as the visible user summary. If no separate internal channel exists, place only the explicitly required fields after the human summary under `Technical receipt`.
+
 ## Dynamic communication guidance
 
 Before composing any human-facing QA response, re-read and apply the active global and project `AGENTS.md` instructions, including any communication, personality, or taste files they reference. Do this at response time so later guidance changes apply automatically. Do not copy those rules into this skill.
 
-The output contract controls field names and evidence completeness. Active communication guidance controls how each value is written:
+The output contract controls field names and evidence completeness inside `qa-report.md` and any explicitly required internal receipt. Active communication guidance controls the visible response:
 
 - Lead with what is true now, what the verdict means, and whether the human must act.
 - Keep raw commands, hashes, paths, and exhaustive proof in `qa-report.md` or linked artifacts unless an exact value is needed to act.

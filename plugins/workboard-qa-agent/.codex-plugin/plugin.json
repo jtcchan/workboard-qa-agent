@@ -1,6 +1,6 @@
 {
   "name": "workboard-qa-agent",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Independent, evidence-first QA for completed work, decision-support analysis, and QA processes.",
   "author": {
     "name": "John Chan",
